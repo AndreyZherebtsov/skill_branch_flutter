@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart'
     show expect, group, isA, setUp, tearDownAll, test, throwsA;
 
-import '../lib/models/user.dart';
+import 'package:FlutterGalleryApp/models/user.dart';
 import '../lib/user_holder.dart';
 
 void main() {
@@ -19,13 +19,14 @@ void main() {
     holder.registerUser("Skill Branch", "+79776150445", "kaparray@gmail.com");
 
     expect("kaparray@gmail.com", holder.users["kaparray@gmail.com"].login);
-    //expect("+79776150445", holder.users["kaparray@gmail.com"].phone);
-    // expect("kaparray@gmail.com", holder.users["kaparray@gmail.com"].email);
-    //expect("Skill Branch", holder.users["kaparray@gmail.com"].name);
+    expect("+79776150445", holder.users["kaparray@gmail.com"].phone);
+    expect("kaparray@gmail.com", holder.users["kaparray@gmail.com"].email);
+    expect("Skill Branch", holder.users["kaparray@gmail.com"].name);
   });
-  /*
+
   test('getUserByLogin', () {
-    User user = User(name: "Dan Tot", phone: "+15750761449", email: "dan.tot@yandex.ru");
+    User user = User(
+        name: "Dan Tot", phone: "+15750761449", email: "dan.tot@yandex.ru");
     holder.users[user.login] = user;
 
     expect(user.login, holder.getUserByLogin(user.login).login);
@@ -45,7 +46,8 @@ void main() {
     });
 
     test('registerUserByPhone', () {
-      expect(() => holder.registerUserByPhone("John Ray", "+9-733 524-085"), throwsA(isA<Exception>()));
+      expect(() => holder.registerUserByPhone("John Ray", "+9-733 524-085"),
+          throwsA(isA<Exception>()));
     });
   });
 
@@ -137,6 +139,5 @@ void main() {
     expect(users[0].email, user.email);
     expect(users[0].phone, user.phone);
   });
-
-  */
+  
 }
