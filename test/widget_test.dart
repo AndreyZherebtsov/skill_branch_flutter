@@ -62,22 +62,18 @@ void main() {
     });
 
     test('Email is not valid registerUserByPhone', () {
-      expect(() => holder.registerUserByEmail("John Ray", "dfdsag"),
-          throwsA(isA<Exception>()));
+      expect(() => holder.registerUserByEmail("John Ray", "dfdsag"), throwsA(isA<Exception>()));
     });
 
-    test('Exception(A user with this email already exists) registerUserByPhone',
-        () {
+    test('Exception(A user with this email already exists) registerUserByPhone', () {
       holder.registerUserByEmail("John Ray", "ray1550@yahoo.net");
 
-      expect(() => holder.registerUserByEmail("John Ray", "ray1550@yahoo.net"),
-          throwsA(isA<Exception>()));
+      expect(() => holder.registerUserByEmail("John Ray", "ray1550@yahoo.net"), throwsA(isA<Exception>()));
     });
   });
 
   test('setFriends', () {
-    User user = User(
-        name: "Dan Tot", phone: "+15750761449", email: "dan.tot@yandex.ru");
+    User user = User(name: "Dan Tot", phone: "+15750761449", email: "dan.tot@yandex.ru");
     holder.users[user.login] = user;
 
     List<User> friends = [
@@ -100,8 +96,7 @@ void main() {
 
   group('findUserInFriends', () {
     test('findUserInFriends', () {
-      User user = User(
-          name: "Dan Tot", phone: "+15750761449", email: "dan.tot@yandex.ru");
+      User user = User(name: "Dan Tot", phone: "+15750761449", email: "dan.tot@yandex.ru");
       holder.users[user.login] = user;
 
       List<User> friends = [
@@ -116,8 +111,7 @@ void main() {
     });
 
     test('findUserInFriends exception', () {
-      User user = User(
-          name: "Dan Tot", phone: "+15750761449", email: "dan.tot@yandex.ru");
+      User user = User(name: "Dan Tot", phone: "+15750761449", email: "dan.tot@yandex.ru");
       holder.users[user.login] = user;
 
       List<User> friends = [
@@ -125,18 +119,13 @@ void main() {
         User(name: "Warren Buffett", phone: "+1 833-914-92-65"),
       ];
 
-      expect(() => holder.findUserInFriends(user.login, friends[0]),
-          throwsA(isA<Exception>()));
-      expect(() => holder.findUserInFriends(user.login, friends[1]),
-          throwsA(isA<Exception>()));
+      expect(() => holder.findUserInFriends(user.login, friends[0]), throwsA(isA<Exception>()));
+      expect(() => holder.findUserInFriends(user.login, friends[1]), throwsA(isA<Exception>()));
     });
   });
 
   test('Test: UserHolder.importUsers()', () {
-    User user = User(
-        name: "Dan Tot",
-        phone: "+1 (231) 076-1449",
-        email: "dan.tot@yandex.ru");
+    User user = User(name: "Dan Tot", phone: "+1 (231) 076-1449", email: "dan.tot@yandex.ru");
 
     List<User> users = holder.importUsers([
       """
@@ -150,4 +139,5 @@ void main() {
     expect(users[0].email, user.email);
     expect(users[0].phone, user.phone);
   });
+  
 }
