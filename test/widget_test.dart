@@ -1,4 +1,4 @@
-/*import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import '../lib/screens/feed_screen.dart';
@@ -17,13 +17,14 @@ void main() {
   // });
 
   testWidgets('Photo', (WidgetTester tester) async {
-    await tester.pumpWidget(MaterialApp(home: Photo(photoLink: kFlutterDash, key: Key('Photo'))));
+    await tester.pumpWidget(
+        MaterialApp(home: Photo(photoLink: kFlutterDash, key: Key('Photo'))));
 
     final titleFinder = find.byKey(Key('Photo'));
 
     expect(titleFinder, findsOneWidget);
   });
-
+  /*
   testWidgets('FullScreenImage -> altDescription', (WidgetTester tester) async {
     await tester.pumpWidget(
       MaterialApp(
@@ -50,4 +51,65 @@ void main() {
         ),
       ),
     );
-*/
+
+    final titleFinder = find.byKey(Key('FullScreenImage'));
+    final userNameText = find.text('@kaparray');
+
+    expect(titleFinder, findsOneWidget);
+    expect(userNameText, findsOneWidget);
+  });
+
+  testWidgets('FullScreenImage -> name', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: FullScreenImage(
+          name: 'Kirill Adeshchenko',
+          key: Key('FullScreenImage'),
+        ),
+      ),
+    );
+
+    final titleFinder = find.byKey(Key('FullScreenImage'));
+    final nameText = find.text('Kirill Adeshchenko');
+
+    expect(titleFinder, findsOneWidget);
+    expect(nameText, findsOneWidget);
+  });
+
+  testWidgets('FullScreenImage -> AppBar', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: FullScreenImage(
+          key: Key('FullScreenImage'),
+        ),
+      ),
+    );
+
+    final titleFinder = find.byKey(Key('FullScreenImage'));
+    final backButton = find.byIcon(CupertinoIcons.back);
+    final photoTextAppBar = find.text('Photo');
+
+    expect(titleFinder, findsOneWidget);
+    expect(backButton, findsOneWidget);
+    expect(photoTextAppBar, findsOneWidget);
+  });
+
+  testWidgets('FullScreenImage -> ButtonBar', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: FullScreenImage(
+          key: Key('FullScreenImage'),
+        ),
+      ),
+    );
+
+    final titleFinder = find.byKey(Key('FullScreenImage'));
+    final saveButton = find.text('Save');
+    final visitButton = find.text('Visit');
+
+    expect(titleFinder, findsOneWidget);
+    expect(saveButton, findsOneWidget);
+    expect(visitButton, findsOneWidget);
+  });
+  */
+}

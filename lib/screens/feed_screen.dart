@@ -17,7 +17,9 @@ class _FeedState extends State<Feed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(itemBuilder: (BuildContext context, int index) {
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) {
         return Column(children: <Widget>[
           _buildItem(),
           Divider(
@@ -31,11 +33,22 @@ class _FeedState extends State<Feed> {
 
   Widget _buildItem() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Photo(
           photoLink: kFlutterDash,
         ),
         _buildPhotoMeta(),
+         Padding(
+         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+         child:
+        Text(
+          'This is Flutter dash. I love him :)',
+          maxLines: 3,
+          overflow: TextOverflow.ellipsis,
+          style: AppStyles.h3.copyWith(color: AppColors.black),
+        ),
+         ),
       ],
     );
   }
