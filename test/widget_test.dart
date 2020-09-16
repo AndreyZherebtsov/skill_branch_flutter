@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import '../lib/screens/feed_screen.dart';
-//import '../lib/screens/photo_screen.dart';
+import '../lib/screens/photo_screen.dart';
 import '../lib/widgets/widgets.dart';
 
 void main() {
@@ -24,7 +24,7 @@ void main() {
 
     expect(titleFinder, findsOneWidget);
   });
-  /*
+  
   testWidgets('FullScreenImage -> altDescription', (WidgetTester tester) async {
     await tester.pumpWidget(
       MaterialApp(
@@ -111,5 +111,6 @@ void main() {
     expect(saveButton, findsOneWidget);
     expect(visitButton, findsOneWidget);
   });
-  */
+ 
 }
+ 
