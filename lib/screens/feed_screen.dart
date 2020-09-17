@@ -38,7 +38,7 @@ class _FeedState extends State<Feed> {
       children: <Widget>[
         GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => FullScreenImage(photo: kFlutterDash,)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => FullScreenImage(photourl: kFlutterDash,)));
           },
            child: Photo(photoLink: kFlutterDash,),
         ),

@@ -1,17 +1,16 @@
-
 import '../widgets/widgets.dart';
 import '../res/res.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class FullScreenImage extends StatelessWidget {
-  final String photo;
+  final String photourl;
   final String altDescription;
   final String userName;
   final String name;
 
   FullScreenImage(
-      {this.photo, this.altDescription, this.name, this.userName, Key key})
+      {this.photourl, this.altDescription, this.name, this.userName, Key key})
       : super(key: key);
 
   @override
@@ -26,6 +25,7 @@ class FullScreenImage extends StatelessWidget {
               icon: Icon(CupertinoIcons.back),
               onPressed: () {
                 Navigator.pop(context);
+                print(photourl.toString());
               },
             );
           },
@@ -33,7 +33,7 @@ class FullScreenImage extends StatelessWidget {
       ),
       body: Center(
         child: Column(children: <Widget>[
-          Photo(photoLink: photo),
+          Photo(photoLink: 'https://flutter.dev/assets/404/dash_nest-c64796b59b65042a2b40fae5764c13b7477a592db79eaf04c86298dcb75b78ea.png'),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: altDescription != null
@@ -93,7 +93,8 @@ class FullScreenImage extends StatelessWidget {
                       ),
                     )),
                 GestureDetector(
-                    onTap: () {print('Нажали кнопку VISIT');
+                    onTap: () {
+                      print('Нажали кнопку VISIT');
                     },
                     child: Container(
                       width: 100,

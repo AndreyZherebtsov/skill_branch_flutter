@@ -8,8 +8,13 @@ class Photo extends StatelessWidget {
 
   final String photoLink;
 
+  void toScreen(String photoLink) {
+    print(photoLink.toString());
+  }
+
   @override
   Widget build(BuildContext context) {
+    //toScreen(photoLink);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: ClipRRect(
