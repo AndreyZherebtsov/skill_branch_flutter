@@ -10,7 +10,7 @@ class FullScreenImage extends StatelessWidget {
   final String name;
 
   FullScreenImage(
-      {this.photourl, this.altDescription, this.name, this.userName, Key key})
+      {this.photourl = "", this.altDescription, this.name, this.userName, Key key})
       : super(key: key);
 
   @override
@@ -33,7 +33,7 @@ class FullScreenImage extends StatelessWidget {
       ),
       body: Center(
         child: Column(children: <Widget>[
-          Photo(photoLink: 'https://flutter.dev/assets/404/dash_nest-c64796b59b65042a2b40fae5764c13b7477a592db79eaf04c86298dcb75b78ea.png'),
+          Photo(photoLink: photourl),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: altDescription != null
